@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 
-const AddTaskModal = ({ onSave }) => {
-  const [task, setTask] = useState({
-    id: crypto.randomUUID(),
-    title: "",
-    description: "",
-    tags: [],
-    priority: "",
-    IsFavorite: false,
-  });
+const AddTaskModal = ({ onSave, taskToUpdate }) => {
+  const [task, setTask] = useState(
+    taskToUpdate || {
+      id: crypto.randomUUID(),
+      title: "",
+      description: "",
+      tags: [],
+      priority: "",
+      IsFavorite: false,
+    }
+  );
 
   const handleChange = (evt) => {
     const name = evt.target.name;
