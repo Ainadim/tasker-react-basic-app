@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
-const SearchTask = () => {
+const SearchTask = ({ onSearch }) => {
+  const [searchTearm, setSearchTearm] = useState("");
+
+  function handleClick(event) {
+    event.preventDefault();
+    onSearch(searchTearm);
+  }
   return (
     <>
       <form>
@@ -11,9 +17,12 @@ const SearchTask = () => {
               id="search-dropdown"
               className="z-20 block w-full bg-gray-800 px-4 py-2 pr-10 focus:outline-none"
               placeholder="Search Task"
+              value={searchTearm}
+              onChange={() => setSearchTearm(event.target.value)}
               required
             />
             <button
+              onClick={handleClick}
               type="submit"
               className="absolute right-2 top-0 h-full rounded-e-lg text-white md:right-4"
             >

@@ -1,6 +1,6 @@
 import React from "react";
 
-const TaskAction = ({ onAddClick }) => {
+const TaskAction = ({ onAddClick, onDeleteAllClick }) => {
   return (
     <>
       <div className="mb-14 items-center justify-between sm:flex">
@@ -10,9 +10,12 @@ const TaskAction = ({ onAddClick }) => {
             className="rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold"
             onClick={onAddClick}
           >
-            Add Task
+            Add new Task
           </button>
-          <button className="rounded-md bg-red-500 px-3.5 py-2.5 text-sm font-semibold">
+          <button
+            className="rounded-md bg-red-500 px-3.5 py-2.5 text-sm font-semibold"
+            onClick={onDeleteAllClick}
+          >
             Delete All
           </button>
         </div>
